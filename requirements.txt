@@ -1,0 +1,10 @@
+# Core numerical and signal-processing dependencies
+numpy
+scipy
+scikit-learn
+pyriemann
+
+# Plotting and interactive notebook diagnostics
+matplotlib
+ipywidgets
+ipympl
