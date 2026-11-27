@@ -18,11 +18,7 @@ The repository currently covers four areas:
 
 Ports and tools for methods based on *Potato Field* and Riemannian geometry, applied to EEG artifact detection. The `Potato/` folder contains the Python pipeline, potato configurations, and an example notebook.
 
-### Peak Alignment
-
-An implementation for aligning peaks in biological signals. The method-specific documentation will describe the reference algorithm, expected inputs, and output format.
-
-### Riemannian Registration
+### Riemannian CoRegistration (RCoR)
 
 Tools for registering signals or representations using Riemannian distances and geometry. The relevant folder will document the available modes and parameters.
 
@@ -39,9 +35,13 @@ Riemann/
 │   ├── requirements.txt
 │   ├── example_irpf.ipynb
 │   └── ...
-├── PeakAlignment/          # folder name to confirm
-├── RiemannianRegistration/ # folder name to confirm
-└── MEMD-ASR/               # folder name to confirm
+├── RCoR/
+│   ├── README.md
+│   ├── julia/
+│   ├── python/rcor_nuclear/
+│   ├── examples/
+│   └── ...
+└── MEMD-ASR/
 ```
 
 The folder names shown for methods that are not yet documented are placeholders. Update them to match the actual repository structure.
