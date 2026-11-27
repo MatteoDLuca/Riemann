@@ -1,4 +1,6 @@
-<img width="124" height="92" alt="image" src="https://github.com/user-attachments/assets/dc8e9b2a-a534-4552-a0ba-a1d03e689e01" />
+<p align="center">
+  <img src="RCoR/assets/intense-logo.png" width="150" alt="INTENSE logo" />
+</p>
 
 # Python Porting of Riemannian Methods for Biological Signals
 
