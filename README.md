@@ -1,86 +1,115 @@
-<p align="center">
-  <img src="RCoR/assets/intense-logo.png" width="150" alt="INTENSE logo" />
-</p>
 
-# Python Porting of Riemannian Methods for Biological Signals
+INTENSE Signal Preprocessing Toolkit
+A collection of preprocessing methods, pipelines, and utilities for physiological signals, with a particular focus on EEG.
+The repository brings together implementations, ports, and adaptations of state-of-the-art signal processing approaches developed or maintained within the INTENSE project. The aim is to provide reproducible, documented, and reusable preprocessing workflows that can be integrated into research and applied machine learning pipelines.
+Each method is documented with its scientific background, implementation details, requirements, parameters, and known limitations.
+Project status: methods are under active development and documentation may be incomplete in some modules. Please consult the README available in each method's folder before applying a pipeline to new datasets.
 
-This repository brings together Python ports and tools based on Riemannian geometry for processing biological signals, with a particular focus on EEG.
+Available Methods
+The repository currently includes several families of preprocessing approaches.
+Potato-Based Artifact Detection
+Tools based on Potato Field and Riemannian geometry for EEG artifact detection and quality assessment.
+Typical applications include:
 
-The goal is to make these methods more accessible and reusable in Python workflows, while documenting each implementation's reference algorithm, requirements, parameters, and limitations.
+- automatic artifact identification;
+- signal quality monitoring;
+- rejection of contaminated EEG epochs.
+The dedicated folder contains configurations, examples, and utilities for integrating Potato-based processing into existing pipelines.
 
-> **Project status:** implementations and documentation may be at different stages of maturity. Check the README in each method's folder before using it with new data.
+Riemannian Co-Registration (RCoR)
+Tools for aligning and registering EEG representations across subjects, sessions, or recording conditions using Riemannian geometry.
+Available implementations may include different registration strategies and optimization approaches, together with practical examples and benchmarking scripts.
 
-## Methods
 
-The repository currently covers four areas:
+MEMD-ASR
+Implementation and integration of preprocessing pipelines combining:
 
-### Potatoes
+- MEMD (Multivariate Empirical Mode Decomposition)
+- ASR (Artifact Subspace Reconstruction)
+These methods are primarily intended for artifact removal and signal cleaning in EEG recordings.
+Documentation specifies dependencies, supported variants, and recommended parameter settings.
 
-Ports and tools for methods based on *Potato Field* and Riemannian geometry, applied to EEG artifact detection. The `Potato/` folder contains the Python pipeline, potato configurations, and an example notebook.
+Additional Methods
+The repository is designed to host additional preprocessing techniques, including:
 
-### Riemannian CoRegistration (RCoR)
+- filtering and denoising methods;
+- artifact-removal pipelines;
+- signal quality assessment tools;
+- feature-oriented preprocessing procedures;
+- multimodal physiological signal processing workflows.
 
-Tools for registering signals or representations using Riemannian distances and geometry. The relevant folder will document the available modes and parameters.
+Repository Structure
+INTENSE_Preprocessing/
 
-### MEMD-ASR
-
-A port or integration of a pipeline combining **MEMD** (*Multivariate Empirical Mode Decomposition*) and **ASR** (*Artifact Subspace Reconstruction*) for processing biological signals, particularly EEG. The dedicated folder will describe the implemented variants and required dependencies.
-
-## Repository structure
-
-```text
-Riemann/
 ├── Potato/
 │   ├── README.md
 │   ├── requirements.txt
-│   ├── example_irpf.ipynb
+│   ├── examples/
 │   └── ...
+│
 ├── RCoR/
 │   ├── README.md
 │   ├── julia/
-│   ├── python/rcor_nuclear/
+│   ├── python/
 │   ├── examples/
 │   └── ...
-└── MEMD-ASR/
-```
+│
+├── MEMD-ASR/
+│   ├── README.md
+│   └── ...
+│
+└── ...
+The structure will evolve as new methods and preprocessing pipelines are added.
 
-The folder names shown for methods that are not yet documented are placeholders. Update them to match the actual repository structure.
-
-## Requirements and installation
-
-Each method may have its own dependencies. Install the packages listed in that method's folder. For example, for the Potato project:
-
-```bash
+Installation
+Each preprocessing method may have specific dependencies.
+Install the requirements provided within the corresponding folder. For example:
 cd Potato
 pip install -r requirements.txt
-```
+Method-specific instructions, notebooks, and examples are provided alongside each implementation.
 
-Instructions for using notebooks, scripts, or Python APIs are kept alongside each implementation.
+Data Validation and Usage Guidelines
+These tools are intended for research and development purposes.
+Before applying a method to a new dataset, ensure that:
 
-## Data and validation
+- data format and channel ordering are correct;
+- signal units and sampling rates are consistent with the method requirements;
+- assumptions behind the preprocessing procedure are appropriate for the target data;
+- outputs are validated against references, publications, or established implementations when possible.
+For reproducibility, always document:
 
-These tools are intended for research and development. Before applying them to a new dataset:
+- preprocessing parameters;
+- software versions;
+- channel selections;
+- filtering settings;
+- artifact rejection criteria.
+Do not upload identifiable recordings, credentials, or other sensitive data to the repository. Whenever possible, provide instructions for obtaining or preparing example datasets instead of distributing raw data.
 
-- verify the data format, units, sampling rate, and channel order;
-- check that the method's assumptions suit the data;
-- compare results with appropriate implementations or references;
-- document the preprocessing choices and parameters used.
+License
+Please verify both the repository license and the licenses of any original implementations, ports, or source projects before redistribution.
+Appropriate attribution should always be maintained for third-party methods and software
 
-Do not add identifiable EEG recordings, credentials, or other sensitive data to the repository. Where possible, provide instructions for obtaining or preparing example data instead.
+About the Authors and Acknowledgments
+This repository was developed within the INTENSE Project, whose objective is the development and validation of advanced methods for physiological signal processing and analysis.
+The work has been financially supported by the Ministry of Enterprises and Made in Italy (MIMIT).
+The repository collects original implementations, adaptations, and ports of methods proposed in the scientific literature. Individual modules may contain additional acknowledgments and references specific to the original authors and software projects from which they are derived.
+For authorship information, please refer to the repository contributors and commit history.
 
-## References
+Contributing
+Contributions, suggestions, bug reports, and feature requests are welcome.
+If you encounter a problem, please open a GitHub Issue and provide:
 
-Each method folder should cite the scientific papers and software projects on which the method or port is based. Add repository-wide references here when available.
+- the affected method or preprocessing pipeline;
+- software version and dependency information;
+- operating system details;
+- a minimal reproducible example;
+- expected and observed behavior.
+To protect privacy and ensure compliance with data-protection regulations, please do not upload identifiable recordings, private datasets, credentials, or proprietary validation artifacts.
 
-## Contributing
+References
+Each method folder contains references to the original scientific publications and software projects on which the implementation is based.
+Repository-wide references may be listed here as the project evolves.
+Example:
 
-Contributions, bug reports, and suggestions are welcome. To make reports easier to review, include:
-
-- the affected method and version;
-- operating system and Python/dependency versions;
-- a minimal reproducible example that contains no sensitive data;
-- the expected and observed results.
-
-## License
-
-The repository license and the licenses of the original methods or source code must be checked before distribution. Add the selected license here and provide proper attribution for each port.
+- Schiavon, J. (2022). Geometria differenziale delle matrici simmetriche e definite positive per applicazioni statistiche. PhD Thesis, University of Padua, Italy. https://hdl.handle.net/11577/3449438
+Additional references are provided within the documentation of the corresponding methods.
