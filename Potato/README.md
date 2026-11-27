@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="RCoR/assets/intense-logo.png" width="150" alt="INTENSE logo" />
+  <img src="intense-logo.png" width="150" alt="INTENSE logo" />
 </p>
 
 # iRPF EEG Artifact Detection Pipeline
