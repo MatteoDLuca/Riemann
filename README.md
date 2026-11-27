@@ -16,14 +16,14 @@ Each module is self-contained and documented with its theoretical background, so
 
 ## Table of Contents
 
-- [Available Methods](#-available-methods)
-- [Repository Structure](#-repository-structure)
-- [Installation](#-installation)
-- [Data Validation and Usage Guidelines](#-data-validation-and-usage-guidelines)
-- [About the Authors and Acknowledgments](#-about-the-authors-and-acknowledgments)
-- [Contributing](#-contributing)
-- [References](#-references)
-- [License](#-license)
+- [Available Methods](#available-methods)
+- [Repository Structure](#repository-structure)
+- [Installation](#installation)
+- [Data Validation and Usage Guidelines](#data-validation-and-usage-guidelines)
+- [About the Authors and Acknowledgments](#about-the-authors-and-acknowledgments)
+- [Contributing](#contributing)
+- [References](#references)
+- [License](#license)
 
 ---
 
