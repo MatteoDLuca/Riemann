@@ -1,86 +1,87 @@
 <p align="center">
-  <img src="RCoR/assets/intense-logo.png" width="150" alt="INTENSE logo" />
+  <img src="RCoR/assets/intense-logo.png" alt="INTENSE Project Logo" width="220"/>
 </p>
 
-# Python Porting of Riemannian Methods for Biological Signals
+# INTENSE Physiological Signal Processing Toolkit
 
-This repository brings together Python ports and tools based on Riemannian geometry for processing biological signals, with a particular focus on EEG.
+A collection of physiological signal processing algorithms, artifact-removal pipelines, and research utilities, with a primary focus on electroencephalography (EEG) and related biosignals.
 
-The goal is to make these methods more accessible and reusable in Python workflows, while documenting each implementation's reference algorithm, requirements, parameters, and limitations.
+This repository brings together implementations, ports, adaptations, and reproducible workflows developed or maintained within the **INTENSE Project**. It spans complementary methodological families—including **Riemannian geometry on symmetric positive-definite (SPD) manifolds** and **multivariate signal decomposition / subspace reconstruction**—to support standardized preprocessing, quality control, and downstream machine learning applications.
 
-> **Project status:** implementations and documentation may be at different stages of maturity. Check the README in each method's folder before using it with new data.
+Each module is self-contained and documented with its theoretical background, software dependencies, parameter settings, usage examples, and known limitations.
 
-## Methods
+> **Project status:** Modules are under active research development and may vary in maturity or supported languages (e.g., Python, Julia). Please consult the `README.md` inside each method's folder before applying a pipeline to new datasets.
 
-The repository currently covers four areas:
+---
 
-### Potatoes
+## 📚 Table of Contents
 
-Ports and tools for methods based on *Potato Field* and Riemannian geometry, applied to EEG artifact detection. The `Potato/` folder contains the Python pipeline, potato configurations, and an example notebook.
+- [Available Methods](#-available-methods)
+- [Repository Structure](#-repository-structure)
+- [Installation](#-installation)
+- [Data Validation and Usage Guidelines](#-data-validation-and-usage-guidelines)
+- [About the Authors and Acknowledgments](#-about-the-authors-and-acknowledgments)
+- [Contributing](#-contributing)
+- [References](#-references)
+- [License](#-license)
 
-### Riemannian CoRegistration (RCoR)
+---
 
-Tools for registering signals or representations using Riemannian distances and geometry. The relevant folder will document the available modes and parameters.
+## 📦 Available Methods
 
-### MEMD-ASR
+The repository currently organizes core signal processing contributions into three main modules, alongside space for future extensions:
 
-A port or integration of a pipeline combining **MEMD** (*Multivariate Empirical Mode Decomposition*) and **ASR** (*Artifact Subspace Reconstruction*) for processing biological signals, particularly EEG. The dedicated folder will describe the implemented variants and required dependencies.
+### 🥔 Potato-Based Artifact Detection (`Potato/`)
+Methods based on *Potato Field* concepts and Riemannian distance metrics on covariance matrices for automated EEG quality assessment and outlier rejection.
+- **Main use cases:** automatic detection of artifact-contaminated epochs, continuous signal quality monitoring, and baseline-referenced outlier filtering.
+- **Contents:** modular Python pipeline (`potato_config.py`, `irpf_utils.py`, `run_irpf.py`, `full_irpf_python_only.py`), diagnostic plotting utilities (`diagnostic_plot.py`), and an interactive walkthrough (`example_irpf.ipynb`).
 
-## Repository structure
+### 📐 Riemannian Co-Registration (`RCoR/`)
+Tools for co-registering collections of real symmetric positive-definite (SPD) matrices into a common orthogonal eigenvector basis while resolving eigenvector sign ambiguities via nuclear-norm maximization.
+- **Main use cases:** cross-subject, cross-session, or cross-condition alignment of covariance representations and computation of Riemannian-aligned reference matrices.
+- **Contents:** independent **Python** (`python/rcor_nuclear/`) and **Julia** (`julia/RR_nuclear_optimized_final.jl`) implementations, synthetic benchmark datasets, and comparative visualization scripts (`examples/`).
+
+### 🧠 MEMD-ASR (`MEMD-ASR/`)
+Preprocessing and artifact-attenuation pipelines combining **Multivariate Empirical Mode Decomposition (MEMD)** with **Artifact Subspace Reconstruction (ASR)**.
+- **Main use cases:** data-driven multi-scale decomposition and non-stationary artifact suppression in low- and high-density EEG recordings without relying on fixed basis functions.
+- **Contents:** implementation variants, parameter guidelines, and usage examples detailed in the module's dedicated documentation.
+
+### 🔬 Planned & Extensible Modules
+The repository is structured to accommodate additional physiological signal processing workflows, including:
+- spectral parameterization, filtering, and narrowband denoising utilities;
+- multimodal biosignal synchronization and quality control tools;
+- feature extraction and tangent-space / manifold representations for machine learning.
+
+[▲ Back to top](#intense-physiological-signal-processing-toolkit)
+
+---
+
+## 📁 Repository Structure
 
 ```text
-Riemann/
+Riemann/  # (or INTENSE-Physiological-Signal-Processing)
 ├── Potato/
 │   ├── README.md
 │   ├── requirements.txt
-│   ├── example_irpf.ipynb
-│   └── ...
+│   ├── potato_config.py
+│   ├── irpf_utils.py
+│   ├── diagnostic_plot.py
+│   ├── full_irpf_python_only.py
+│   ├── run_irpf.py
+│   └── example_irpf.ipynb
+│
 ├── RCoR/
 │   ├── README.md
-│   ├── julia/
-│   ├── python/rcor_nuclear/
+│   ├── pyproject.toml
+│   ├── assets/
 │   ├── examples/
+│   ├── julia/
+│   └── python/
+│       └── rcor_nuclear/
+│
+├── MEMD-ASR/
+│   ├── README.md
 │   └── ...
-└── MEMD-ASR/
-```
-
-The folder names shown for methods that are not yet documented are placeholders. Update them to match the actual repository structure.
-
-## Requirements and installation
-
-Each method may have its own dependencies. Install the packages listed in that method's folder. For example, for the Potato project:
-
-```bash
-cd Potato
-pip install -r requirements.txt
-```
-
-Instructions for using notebooks, scripts, or Python APIs are kept alongside each implementation.
-
-## Data and validation
-
-These tools are intended for research and development. Before applying them to a new dataset:
-
-- verify the data format, units, sampling rate, and channel order;
-- check that the method's assumptions suit the data;
-- compare results with appropriate implementations or references;
-- document the preprocessing choices and parameters used.
-
-Do not add identifiable EEG recordings, credentials, or other sensitive data to the repository. Where possible, provide instructions for obtaining or preparing example data instead.
-
-## References
-
-Each method folder should cite the scientific papers and software projects on which the method or port is based. Add repository-wide references here when available.
-
-## Contributing
-
-Contributions, bug reports, and suggestions are welcome. To make reports easier to review, include:
-
-- the affected method and version;
-- operating system and Python/dependency versions;
-- a minimal reproducible example that contains no sensitive data;
-- the expected and observed results.
-
-## License
-
-The repository license and the licenses of the original methods or source code must be checked before distribution. Add the selected license here and provide proper attribution for each port.
+│
+├── LICENSE
+└── README.md
