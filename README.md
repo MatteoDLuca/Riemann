@@ -27,7 +27,7 @@ Each module is self-contained and documented with its theoretical background, so
 
 ---
 
-## Available Methods
+# Available Methods
 
 The repository currently organizes core signal processing contributions into three main modules, alongside space for future extensions:
 
