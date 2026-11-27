@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/intense-logo.png" width="150" alt="INTENSE logo" />
+</p>
+
 # iRPF EEG Artifact Detection Pipeline
 
 This project organizes the Python-only iRPF pipeline into reusable modules, a separate potato configuration, and an example notebook. It is intended to be run from Jupyter or Google Colab.
