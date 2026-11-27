@@ -1,0 +1,26 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+.venv/
+venv/
+build/
+dist/
+.ipynb_checkpoints/
+
+# Locally generated outputs
+examples/output/
+local_data/
+*.log
+.DS_Store
+Manifest.toml
+
+# Local research datasets and derived artifacts
+Mindfulness data/
+INTENSE/
+**/Mindfulness data/
+sub*_pre_T1_oc.txt
+sub*_pre_T0_*.txt
+cntrl*_*.txt
+*_real_outputs/
+real_fixtures/
