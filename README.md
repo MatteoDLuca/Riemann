@@ -1,3 +1,5 @@
+<img width="124" height="92" alt="image" src="https://github.com/user-attachments/assets/dc8e9b2a-a534-4552-a0ba-a1d03e689e01" />
+
 # Python Porting of Riemannian Methods for Biological Signals
 
 This repository brings together Python ports and tools based on Riemannian geometry for processing biological signals, with a particular focus on EEG.
