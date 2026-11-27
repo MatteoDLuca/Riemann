@@ -85,6 +85,7 @@ Riemann/  # (or INTENSE-Physiological-Signal-Processing)
 │
 ├── LICENSE
 └── README.md
+```
 
 ## Installation
 
@@ -93,12 +94,14 @@ Each method may have specific dependencies. Install the requirements provided wi
 ```bash
 cd Potato
 pip install -r requirements.txt
+```
 
 Or, for the Python package in RCoR/:
 
 ```bash
 cd RCoR
 python -m pip install -e ".[plot]"
+```
 
 Method-specific instructions, Julia setup details, notebooks, and examples are provided alongside each implementation.
 
